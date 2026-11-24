@@ -20,24 +20,72 @@ Write-Host "==================================================================" 
 Write-Host "  Fox Next — Automation Control: ComfyUI Hardware Gate & Setup" -ForegroundColor Cyan
 Write-Host "==================================================================" -ForegroundColor Cyan
 
-# 1. Hardware Gate: 6 GB VRAM + Free Disk Space
+# 1. Hardware Gate: Multi-GPU (NVIDIA CUDA / AMD ROCm or DirectML / Intel) >= 6 GB VRAM + Disk
+$DetectedGpus = @()
 $GpuName = ""
+$GpuVendor = "other"
 $VramMb = 0
+$ComfyBackend = "cloud_or_cpu"
+$FfmpegEncoder = "libx264"
+
 if ($OverrideVramMb -ge 0) {
     $GpuName = "NVIDIA GeForce RTX (Override)"
+    $GpuVendor = "nvidia"
     $VramMb = $OverrideVramMb
-} elseif (Get-Command nvidia-smi -ErrorAction SilentlyContinue) {
-    try {
-        $SmiOut = & nvidia-smi --query-gpu=name,memory.total --format=csv,noheader,nounits 2>$null
-        if ($LASTEXITCODE -eq 0 -and $SmiOut) {
-            $First = ($SmiOut -split "`r?`n")[0]
-            $Parts = $First -split ","
-            if ($Parts.Count -ge 2) {
-                $GpuName = $Parts[0].Trim()
-                $VramMb = [int][double]($Parts[1].Trim())
+    $DetectedGpus = @(@{ name = $GpuName; vendor = $GpuVendor; vram_mb = $VramMb })
+} else {
+    $RegVramMap = @{}
+    $ClassKey = "HKLM:\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}"
+    Get-ChildItem -Path $ClassKey -ErrorAction SilentlyContinue | ForEach-Object {
+        $Props = Get-ItemProperty -Path $_.PSPath -ErrorAction SilentlyContinue
+        if ($Props -and $Props.DriverDesc -and $Props.'HardwareInformation.qwMemorySize') {
+            try {
+                $Qw = $Props.'HardwareInformation.qwMemorySize'
+                $Bytes = if ($Qw -is [byte[]]) { [BitConverter]::ToUInt64($Qw, 0) } else { [uint64]$Qw }
+                $RegMb = [int][math]::Round($Bytes / 1MB)
+                $K = ([string]$Props.DriverDesc).Trim().ToLower()
+                if (-not $RegVramMap.ContainsKey($K) -or $RegMb -gt $RegVramMap[$K]) {
+                    $RegVramMap[$K] = $RegMb
+                }
+            } catch {}
+        }
+    }
+    $SmiMap = @{}
+    if (Get-Command nvidia-smi -ErrorAction SilentlyContinue) {
+        try {
+            $SmiOut = & nvidia-smi --query-gpu=name,memory.total --format=csv,noheader,nounits 2>$null
+            if ($LASTEXITCODE -eq 0 -and $SmiOut) {
+                foreach ($Line in ($SmiOut -split "`r?`n")) {
+                    $Parts = $Line -split ","
+                    if ($Parts.Count -ge 2) {
+                        $SmiMap[$Parts[0].Trim().ToLower()] = [int][double]($Parts[1].Trim())
+                    }
+                }
+            }
+        } catch {}
+    }
+    Get-CimInstance Win32_VideoController -ErrorAction SilentlyContinue | ForEach-Object {
+        $Name = ([string]$_.Name).Trim()
+        if (-not $Name -or ($Name -match "(?i)(microsoft basic|remote desktop|parsec|virtual display|citrix|vmware)")) { return }
+        $WmiMb = if ($_.AdapterRAM) { [int][math]::Round(([uint64]$_.AdapterRAM) / 1MB) } else { 0 }
+        $RegMb = if ($RegVramMap.ContainsKey($Name.ToLower())) { $RegVramMap[$Name.ToLower()] } else { 0 }
+        $BestMb = [math]::Max($WmiMb, $RegMb)
+        foreach ($Sk in $SmiMap.Keys) {
+            if ($Name.ToLower().Contains($Sk) -or $Sk.Contains($Name.ToLower())) {
+                $BestMb = [math]::Max($BestMb, $SmiMap[$Sk])
             }
         }
-    } catch {}
+        $Vendor = if ($Name -match "(?i)(nvidia|geforce|rtx|gtx|quadro|tesla|titan)") { "nvidia" }
+                  elseif ($Name -match "(?i)(amd|radeon|rx |firepro|vega|rdna)") { "amd" }
+                  elseif ($Name -match "(?i)intel") { "intel" } else { "other" }
+        $DetectedGpus += @{ name = $Name; vendor = $Vendor; vram_mb = $BestMb }
+    }
+    if ($DetectedGpus.Count -gt 0) {
+        $Best = $DetectedGpus | Sort-Object { $_.vram_mb } -Descending | Select-Object -First 1
+        $GpuName = $Best.name
+        $GpuVendor = $Best.vendor
+        $VramMb = [int]$Best.vram_mb
+    }
 }
 
 $DriveRoot = [System.IO.Path]::GetPathRoot($InstallDir)
@@ -45,14 +93,29 @@ if (-not $DriveRoot) { $DriveRoot = "C:\" }
 $DriveInfo = New-Object System.IO.DriveInfo($DriveRoot)
 $FreeDiskGb = [math]::Round($DriveInfo.AvailableFreeSpace / 1GB, 2)
 
-$IsDedicatedNvidia = ($GpuName -match "(?i)(nvidia|geforce|rtx|gtx|quadro|tesla|a100|l4|titan)") -and ($GpuName -notmatch "(?i)(intel|uhd|iris)")
+$HasQualifyingGpu = ($VramMb -ge 6000) -and ($GpuVendor -in @("nvidia", "amd", "intel"))
 
-if (-not $IsDedicatedNvidia -or $VramMb -lt 6000) {
-    Write-Host "[HARDWARE GATE LOCKED] GPU: '$GpuName' ($VramMb MB VRAM)." -ForegroundColor Red
-    Write-Host "Local ComfyUI rendering requires a dedicated NVIDIA GPU with at least 6 GB VRAM." -ForegroundColor Yellow
-    Write-Host "Quality Red-Line: Low-quality Pillow fallback is disabled. Please use Fox Next Cloud Studio ($PanelUrl)." -ForegroundColor Cyan
+if (-not $HasQualifyingGpu) {
+    Write-Host "[HARDWARE GATE LOCKED] Best GPU: '$GpuName' ($GpuVendor, $VramMb MB VRAM)." -ForegroundColor Red
+    Write-Host "Local ComfyUI rendering requires a GPU (NVIDIA / AMD / Intel) with at least 6 GB VRAM." -ForegroundColor Yellow
+    Write-Host "Please use Fox Next Cloud Studio ($PanelUrl)." -ForegroundColor Cyan
     if ($ProbeOnly) { exit 2 }
-    throw "Hardware Gate blocked: NVIDIA GPU >= 6 GB VRAM required for local ComfyUI."
+    throw "Hardware Gate blocked: >= 6 GB VRAM GPU required for local ComfyUI."
+}
+
+if ($GpuVendor -eq "nvidia") {
+    $ComfyBackend = "cuda"
+    $FfmpegEncoder = "h264_nvenc"
+} elseif ($GpuVendor -eq "amd") {
+    if ((Get-Command rocm-smi -ErrorAction SilentlyContinue) -or $env:HIP_PATH) {
+        $ComfyBackend = "rocm"
+    } else {
+        $ComfyBackend = "directml"
+    }
+    $FfmpegEncoder = "h264_amf"
+} else {
+    $ComfyBackend = "directml"
+    $FfmpegEncoder = "h264_qsv"
 }
 
 $Tier = if ($VramMb -ge 10000) { "flux_and_sdxl" } else { "sdxl_light" }
@@ -65,7 +128,7 @@ if ($FreeDiskGb -lt $RequiredDiskGb) {
     throw "Insufficient free disk space ($FreeDiskGb GB < $RequiredDiskGb GB). Please use Cloud Studio."
 }
 
-Write-Host "[HARDWARE GATE PASSED] GPU: $GpuName ($VramMb MB VRAM) | Free Disk: $FreeDiskGb GB | Tier: $Tier ($AllowedModels)" -ForegroundColor Green
+Write-Host "[HARDWARE GATE PASSED] GPU: $GpuName ($GpuVendor, $VramMb MB VRAM) | Backend: $ComfyBackend | FFmpeg: $FfmpegEncoder | Free Disk: $FreeDiskGb GB" -ForegroundColor Green
 if ($ProbeOnly) { exit 0 }
 
 New-Item -ItemType Directory -Force -Path $InstallDir | Out-Null
@@ -80,7 +143,7 @@ if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) {
     & curl.exe -fL -C - --retry 3 -o $FfmpegZip $FfmpegUrl
 }
 
-# 3. Clone or update ComfyUI
+# 3. Clone or update ComfyUI & install backend packages (CUDA / ROCm / DirectML)
 $RepoPath = Join-Path $InstallDir "ComfyUI"
 if (-not (Test-Path (Join-Path $RepoPath ".git"))) {
     Write-Host "[3/4] Cloning ComfyUI into $RepoPath..." -ForegroundColor Yellow
@@ -97,6 +160,9 @@ if (-not (Test-Path $VenvPy)) {
 }
 & $VenvPy -m pip install --upgrade pip --quiet
 & $VenvPy -m pip install -r (Join-Path $RepoPath "requirements.txt") --quiet
+if ($ComfyBackend -eq "directml") {
+    & $VenvPy -m pip install torch-directml --quiet
+}
 
 # 4. Auto-pair with Fox Next Automation Control panel & desktop shell
 $WorkerCfgDir = Join-Path $env:USERPROFILE ".foxnext_render_worker"
@@ -109,9 +175,14 @@ $CfgObj = @{
     pair_token = $PairToken
     comfyui_url = $ComfyEndpoint
     worker_name = $env:COMPUTERNAME
+    gpu_name = $GpuName
+    gpu_vendor = $GpuVendor
+    comfy_backend = $ComfyBackend
+    ffmpeg_encoder = $FfmpegEncoder
     hardware_tier = $Tier
     allowed_models = $AllowedModels
     vram_total_mb = $VramMb
+    all_gpus = $DetectedGpus
     poll_interval_sec = 3.0
 }
 ($CfgObj | ConvertTo-Json -Depth 4) | Set-Content -Path $WorkerCfgPath -Encoding UTF8
