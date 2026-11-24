@@ -8,7 +8,7 @@
 #   from the same repository.
 # - Interactive CLI wizard for Port, Email, and optional Domain/Let's Encrypt SSL
 #   (No mandatory license key — 48-hour free trial starts automatically!).
-# Usage: curl -fsSL https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/install.sh | sudo bash
 # ==============================================================================
 set -euo pipefail
 
@@ -20,7 +20,7 @@ BOT_SERVICE="smart-support-bot.service"
 DEFAULT_PORT="${PORT:-8787}"
 PUBLIC_REPO_URL="https://github.com/Fox-Next/Automation-Control.git"
 RELEASE_BASE_URL="https://github.com/Fox-Next/Automation-Control/releases/latest/download"
-RELEASE_ARCHIVE="AutomationControl_Linux.tar.gz"
+RELEASE_ARCHIVE="automation-control-linux.tar.gz"
 
 echo "=========================================================================="
 echo "   Fox Next — Automation Control & Smart Support Bot Linux Installer"
@@ -79,14 +79,19 @@ trap 'rm -rf "${TMP_WORK}"' EXIT
 
 # 3. Download Compiled Linux Release from GitHub Releases with SHA-256 verification
 ARCHIVE_PATH="${TMP_WORK}/${RELEASE_ARCHIVE}"
-SHA_PATH="${TMP_WORK}/${RELEASE_ARCHIVE}.sha256"
+SHA_PATH="${TMP_WORK}/SHA256SUMS.txt"
 
 if curl -fsSL "${RELEASE_BASE_URL}/${RELEASE_ARCHIVE}" -o "$ARCHIVE_PATH" 2>/dev/null; then
   echo "[INFO] Downloaded ${RELEASE_ARCHIVE} from GitHub Releases."
-  if curl -fsSL "${RELEASE_BASE_URL}/${RELEASE_ARCHIVE}.sha256" -o "$SHA_PATH" 2>/dev/null; then
-    EXPECTED_SHA="$(awk '{print $1}' "$SHA_PATH" | tr '[:upper:]' '[:lower:]')"
+  EXPECTED_SHA=""
+  if curl -fsSL "${RELEASE_BASE_URL}/SHA256SUMS.txt" -o "$SHA_PATH" 2>/dev/null; then
+    EXPECTED_SHA="$(awk -v tgt="${RELEASE_ARCHIVE}" '$2==tgt || $2=="*"tgt {print $1}' "$SHA_PATH" | head -n1 | tr '[:upper:]' '[:lower:]')"
+  elif curl -fsSL "${RELEASE_BASE_URL}/${RELEASE_ARCHIVE}.sha256" -o "$SHA_PATH" 2>/dev/null; then
+    EXPECTED_SHA="$(awk '{print $1}' "$SHA_PATH" | head -n1 | tr '[:upper:]' '[:lower:]')"
+  fi
+  if [ -n "$EXPECTED_SHA" ]; then
     ACTUAL_SHA="$(sha256sum "$ARCHIVE_PATH" | awk '{print $1}' | tr '[:upper:]' '[:lower:]')"
-    if [ -n "$EXPECTED_SHA" ] && [ "$EXPECTED_SHA" != "$ACTUAL_SHA" ]; then
+    if [ "$EXPECTED_SHA" != "$ACTUAL_SHA" ]; then
       echo "[ERROR] SHA-256 verification failed! Expected ${EXPECTED_SHA}, got ${ACTUAL_SHA}"
       exit 1
     fi

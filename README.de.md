@@ -4,87 +4,90 @@
   <img src="assets/foxnext-logo.png" alt="Fox Next Logo" width="88" />
 </p>
 
-<h1 align="center">Automation Control — von Fox Next</h1>
+<h1 align="center">Automation Control v3.0.0 — von Fox Next</h1>
 
 <p align="center">
-  <strong>8-Agenten-KI-Orchestrierungsplattform, einheitliche Local-First-Desktop-App &amp; Open-Source Smart Support Bot</strong>
+  <strong>8-Agenten-KI-Plattform, einheitliche Local-First-Desktop-App &amp; Open-Source Smart Support Bot</strong>
 </p>
 
 <p align="center">
   <a href="https://foxnext.net/de/">Offizielle Website</a> •
-  <a href="https://foxnext.net/de/download.html">Windows-App herunterladen</a> •
-  <a href="https://foxnext.online/de/">Cloud-Kontrollpanel</a> •
+  <a href="https://foxnext.net/de/download.html">Download-Seite (foxnext.net)</a> •
+  <a href="https://github.com/Fox-Next/Automation-Control/releases/latest">GitHub Releases (v3.0.0)</a> •
+  <a href="https://foxnext.online/de/">Cloud-Panel</a> •
   <a href="ARCHITECTURE.md">Architektur</a> •
   <a href="SECURITY.md">Sicherheit</a>
 </p>
 
 ---
 
-## 1. Überblick
+## 1. Überblick & Offizielle Releases (`v3.0.0`)
 
-**Automation Control** (entwickelt von **Fox Next**) koordiniert **8 spezialisierte KI-Agenten** für Vertrieb, technischen Multi-Plattform-Support, Linux-DevOps-Überwachung, Finanzprüfung, Omnichannel-Publishing sowie Audio- und Videoproduktion.
+**Automation Control** (von **Fox Next**) koordiniert **8 spezialisierte KI-Agenten** für Vertrieb, technischen Multi-Plattform-Support, Linux-Betrieb, Lizenz- & Bestellprüfung, Omnichannel-Marketing sowie kreative Medienproduktion.
 
-Dieses öffentliche Repository enthält:
-- Den bereinigten Open-Source-Code von **Smart Support Bot** (`smart-support-bot/src/`), direkt aus dem Live-Produktionspfad extrahiert.
-- Einzeilige Installationsskripte für **Linux VPS** (`install.sh`) und lokales **ComfyUI** unter Windows (`scripts/setup-comfyui.ps1`).
-- Architektur-, Sicherheits- und Ethikdokumentation (`ARCHITECTURE.md`, `SECURITY.md`, `CODE_OF_ETHICS.md`).
+Alle offiziellen Pakete (`v3.0.0`) inklusive `SHA256SUMS.txt` sind auf **[GitHub Releases](https://github.com/Fox-Next/Automation-Control/releases/latest)** und **[foxnext.net/de/download.html](https://foxnext.net/de/download.html)** verfügbar:
 
-> Ausführbare Windows-Installer (`.exe`) werden nicht in Git gespeichert, sondern ausschließlich über die offizielle Download-Seite bereitgestellt: [foxnext.net/de/download.html](https://foxnext.net/de/download.html).
-
----
-
-## 2. Kernfunktionen
-
-- **Koordiniertes 8-Agenten-Team:** Orchestrator, Wissens- & Katalog-Sync, Verkaufsberater, technischer Support, Linux-Plattformingenieur, Finanz- & Lizenzprüfung, Omnichannel-Marketing und Creative Director.
-- **Globale Zwei-Wege-Sprachsteuerung:** Kontinuierliches Diktat, automatische Textbereinigung, geordnete TTS-Warteschlange, Hands-Free-Stilleerkennung und sofortiges Barge-in bei Benutzereingaben.
-- **Websuche & Anti-SSRF-Abruf:** Begrenzte Websuche (max. 10 Treffer) sowie netzwerksicherer Seitenabruf mit Blockierung privater/interner IP-Bereiche.
-- **Sicherer Desktop-Bridge & `Chat-to-Config`:** Verschlüsselte Formular-Karten direkt im Chat für den Vault (`[REDACTED_SECRET]`-Maskierung vor jedem LLM) sowie SSH-geschützte Plattformbefehle.
-- **Einheitliche Desktop-App (`Local-First` + `ComfyUI`):** Eigene API-Schlüssel (BYOK) und lokale GPU-Medienrenderings offline nutzen – mit verschlüsselter `.fnbackup`-Migration.
+| Paket | Zielsystem | Beschreibung |
+| :--- | :--- | :--- |
+| **`AutomationControl.exe`** | Windows | Leichte `Modular Shell`-App für Cloud, Self-Hosted VPS & Desktop |
+| **`AutomationControl_LocalEngine.exe`** | Windows | Eigenständige `Local-First`-Desktop-Engine (`Lifetime $49`) inkl. 48h-Test & `BYOK` |
+| **`AutomationControl_RenderWorker.exe`** | Windows | Eigenständiger GPU-Render-Worker für `ComfyUI` (`6 GB VRAM` Hardware-Gate) |
+| **`automation-control-linux.tar.gz`** | Linux VPS | Bereinigtes Self-Hosted-Laufzeitpaket für die automatische Installation via `install.sh` |
+| **`SHA256SUMS.txt`** | Alle | Offizielle `SHA-256`-Prüfsummen aller Release-Dateien |
 
 ---
 
-## 3. Transparente Tarife & Editionen
+## 2. Zentrale Funktionen
+
+- **8 Agenten mit Simple Mode (`Grok Bot`) & Advanced Mode:** Schlankes 3-Spalten-Chat-Layout oder vollständiges 6-Tab-Kontrollpanel.
+- **Google OAuth & One Tap:** Schnelle Anmeldung per Google oder E-Mail-Verifizierung in 10 Sprachen.
+- **Zwei-Wege-Sprachsteuerung:** Kontinuierliche Spracheingabe, geordnete TTS-Wiedergabe, Hands-Free-Modus und sofortiges Barge-in.
+- **Zweistufige `Chat-First`-DM- & Kommentar-Engine:** Token-sparende Verarbeitung für Instagram und Telegram.
+- **3-Schichten-Speicherarchitektur:** Automatische Gedächtniskomprimierung und Brand-Brain-Kontext für präzise Antworten.
+- **Browserlose `cPanel / SSH / SFTP`-Anbindung & Commerce-Hub:** Direkte Server-Integration (mit sofortiger Bereinigung temporärer Zugangsdaten) sowie Shop-, Bestell- und Lagerverwaltung mit oder ohne eigene Website.
+- **Lokale `MCP / Skills / Plugins` & `Local-First`:** Lokales `MCP`-Ökosystem auf Desktop/Linux, verschlüsselter Vault, `.fnbackup`-Migration, `BYOK` und lokales `ComfyUI`.
+
+---
+
+## 3. Tarife & Editionen
 
 | Tarif | Preis | Aktive Agenten | Leistungsumfang |
 | :--- | :--- | :--- | :--- |
-| **Free** | **`$0`** | **8 Agenten** | Tägliches & monatliches Token-Kontingent, +48h-Willkommensbonus (verifizierte E-Mail), 1 Social-Kanal (Telegram/Instagram), 1 Katalog, 20 MB Speicher (7 Tage Temp-TTL), 7 geplante Posts/Woche, 20 lokale ComfyUI-Outputs/Monat |
-| **Basic** | **`$5/mo`** (`$50/yr`) | **8 Agenten** | Erweitertes Monatskontingent, 10 Social-Kanäle & Kataloge, 200 MB Speicher, Cloud Media API aktiv, jährliche Monatsfreigabe (`1/12`) + bis zu 3 Monate Rollover |
-| **Pro** | **`$12/mo`** (`$120/yr`) | **8 Agenten** | Hohes monatliches Token-Kontingent, vollständige Omnichannel- & Cloud-Media-Automatisierung inkl. bis zu 3 Monate Rollover |
-| **Pro Plus** | **`$19/mo`** (`$190/yr`) | **8 Agenten** | Maximale Cloud-Kapazität für Teams & intensive Kampagnen, Cloud Media APIs inkl. bis zu 3 Monate Rollover |
-| **Lifetime** | **`$49`** (einmalig) | **8 Agenten** | **1 übertragbare aktive Installation** (Windows-Desktop **oder** Linux VPS + `Smart Support Bot`), 48h-Testphase, BYOK-Unterstützung & `.fnbackup`-Migration |
-
-Verwalten Sie Ihr Konto direkt über das Cloud-Panel: [foxnext.online/de/](https://foxnext.online/de/).
+| **Free** | **`$0`** | **8 Agenten** | Starter-Tages-/Monatskontingent + 48h-Willkommensbonus, 1 Social-Kanal, 1 Katalog, 20 MB Speicher, lokales `ComfyUI` |
+| **Basic** | **`$5/mo`** (`$50/yr`) | **8 Agenten** | Erweitertes Monatskontingent, 10 Social-Kanäle & Kataloge, 200 MB Speicher, Cloud Media API + 3 Monate Rollover |
+| **Pro** | **`$12/mo`** (`$120/yr`) | **8 Agenten** | Hohes Monatskontingent, vollständige Omnichannel- & Cloud-Media-Automatisierung + 3 Monate Rollover |
+| **Pro Plus** | **`$19/mo`** (`$190/yr`) | **8 Agenten** | Maximale Cloud-Kapazität für Teams & große Kampagnen + 3 Monate Rollover |
+| **Lifetime** | **`$49`** (einmalig) | **8 Agenten** | **1 übertragbare Installation** (`AutomationControl_LocalEngine.exe` unter Windows **oder** Linux VPS + Smart Support Bot), 48h-Test, `BYOK`, `.fnbackup` |
 
 ---
 
-## 4. Schnellinstallation
+## 4. Einzeilige Installationsbefehle
 
-### Option A — Einheitliche Windows-Desktop-App (`Local-First` + `ComfyUI`)
+### 1) Windows Desktop — Automation Control (`PowerShell`)
+```powershell
+irm https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/install.ps1 | iex
+```
 
-1. Laden Sie das offizielle Windows-Paket herunter: [foxnext.net/de/download.html](https://foxnext.net/de/download.html).
-2. *(Optional)* Lokales **ComfyUI** per PowerShell-Einzeiler einrichten:
-
+### 2) Windows — Local ComfyUI GPU Worker (`PowerShell` / `scripts/Setup-ComfyUI.bat`)
 ```powershell
 irm https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/scripts/setup-comfyui.ps1 | iex
 ```
 
-### Option B — Einzeilige Linux-VPS-Installation (`Smart Support Bot`)
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/install.sh | bash
+### 3) Windows — Smart Support Bot (`PowerShell`)
+```powershell
+irm https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/scripts/install-smart-support-bot.ps1 | iex
 ```
 
-Passen Sie anschließend `/opt/smart-support/.env` anhand von `.env.example` an (`TELEGRAM_BOT_TOKEN`, `CONTROL_PANEL_URL`) und starten Sie den Dienst `foxnext-smart-support`.
+### 4) Linux VPS — Automation Control + Smart Support Bot (`bash`)
+```bash
+curl -fsSL https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/install.sh | sudo bash
+```
 
 ---
 
 ## 5. Kontrollpanel-Integration (`panel_conversation_hook.py`)
 
-`smart-support-bot/src/panel_conversation_hook.py` verbindet Telegram-Sitzungen herstellerneutral ausschließlich über Umgebungsvariablen mit dem Kontrollpanel:
-
-- `CONTROL_PANEL_URL`: Ziel-URL des Kontrollpanels (ohne fest einprogrammierte IPs oder private Hosts).
-- `CONTROL_PANEL_TOKEN`: Optionales Bearer-Token für signierte Relay-Aufrufe.
-- `CONTROL_PANEL_ROOT`: Optionaler lokaler Pfad bei gemeinsamem Host-Deployment.
+`smart-support-bot/src/panel_conversation_hook.py` verbindet Telegram-Sitzungen ausschließlich über Umgebungsvariablen (`CONTROL_PANEL_URL`, `CONTROL_PANEL_TOKEN`, `CONTROL_PANEL_ROOT`).
 
 ---
 
@@ -95,6 +98,8 @@ Automation-Control/
 ├── assets/
 │   └── foxnext-logo.png
 ├── scripts/
+│   ├── Setup-ComfyUI.bat
+│   ├── install-smart-support-bot.ps1
 │   └── setup-comfyui.ps1
 ├── smart-support-bot/
 │   ├── requirements.txt
@@ -106,6 +111,7 @@ Automation-Control/
 ├── CODE_OF_ETHICS.md
 ├── LICENSE
 ├── SECURITY.md
+├── install.ps1
 ├── install.sh
 └── README*.md
 ```
@@ -114,6 +120,7 @@ Automation-Control/
 
 ## 7. Sicherheit, Ethik & Lizenz
 
-- Schwachstellenmeldung & Vault-Schutz: [SECURITY.md](SECURITY.md)
-- Verantwortungsvolle KI-Nutzung: [CODE_OF_ETHICS.md](CODE_OF_ETHICS.md)
-- Lizenziert unter der [MIT-Lizenz](LICENSE) — Copyright © 2026 **Fox Next**.
+- Sicherheit & Vault: [SECURITY.md](SECURITY.md)
+- Ethik-Richtlinien: [CODE_OF_ETHICS.md](CODE_OF_ETHICS.md)
+- Architektur: [ARCHITECTURE.md](ARCHITECTURE.md)
+- Lizenziert unter [MIT License](LICENSE) — Copyright © 2026 **Fox Next**.

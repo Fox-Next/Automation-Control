@@ -18,6 +18,7 @@ New-Item -ItemType Directory -Force -Path $InstallDir | Out-Null
 
 $ExePath = Join-Path $InstallDir "AutomationControl.exe"
 $TmpExe = Join-Path $InstallDir "AutomationControl.exe.part"
+$ShaSumsUrl = "$ReleaseBaseUrl/SHA256SUMS.txt"
 $ShaUrl = "$ReleaseBaseUrl/AutomationControl.exe.sha256"
 $ExeUrl = "$ReleaseBaseUrl/AutomationControl.exe"
 
@@ -34,11 +35,26 @@ if (Get-Command curl.exe -ErrorAction SilentlyContinue) {
 Write-Host "[2/4] Verifying SHA-256 integrity checksum..." -ForegroundColor Yellow
 $ActualHash = (Get-FileHash -Path $TmpExe -Algorithm SHA256).Hash.ToLowerInvariant()
 try {
-    $ExpectedRaw = (Invoke-WebRequest -Uri $ShaUrl -UseBasicParsing -TimeoutSec 10).Content
-    if ($ExpectedRaw -is [byte[]]) {
-        $ExpectedRaw = [System.Text.Encoding]::UTF8.GetString($ExpectedRaw)
+    $ExpectedHash = ""
+    try {
+        $SumsRaw = (Invoke-WebRequest -Uri $ShaSumsUrl -UseBasicParsing -TimeoutSec 10).Content
+        if ($SumsRaw -is [byte[]]) {
+            $SumsRaw = [System.Text.Encoding]::UTF8.GetString($SumsRaw)
+        }
+        foreach ($line in ($SumsRaw -split "`r?`n")) {
+            if ($line -match '^\s*([a-fA-F0-9]{64})\s+\*?AutomationControl\.exe\s*$') {
+                $ExpectedHash = $Matches[1].ToLowerInvariant()
+                break
+            }
+        }
+    } catch {}
+    if (-not $ExpectedHash) {
+        $ExpectedRaw = (Invoke-WebRequest -Uri $ShaUrl -UseBasicParsing -TimeoutSec 10).Content
+        if ($ExpectedRaw -is [byte[]]) {
+            $ExpectedRaw = [System.Text.Encoding]::UTF8.GetString($ExpectedRaw)
+        }
+        $ExpectedHash = ($ExpectedRaw -split '\s+')[0].Trim().ToLowerInvariant()
     }
-    $ExpectedHash = ($ExpectedRaw -split '\s+')[0].Trim().ToLowerInvariant()
     if ($ExpectedHash -and ($ExpectedHash.Length -eq 64) -and ($ActualHash -ne $ExpectedHash)) {
         Remove-Item -Force $TmpExe -ErrorAction SilentlyContinue
         throw "SHA-256 checksum mismatch! Expected: $ExpectedHash, Got: $ActualHash"

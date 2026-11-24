@@ -6,87 +6,90 @@
   <img src="assets/foxnext-logo.png" alt="Fox Next Logo" width="88" />
 </p>
 
-<h1 align="center">Automation Control — محصول شرکت Fox Next</h1>
+<h1 align="center">Automation Control v3.0.0 — محصول شرکت Fox Next</h1>
 
 <p align="center">
-  <strong>پلتفرم هوشمند ۸ ایجنت، اپلیکیشن دسکتاپ یکپارچه Local-First و سورس باز Smart Support Bot</strong>
+  <strong>پلتفرم هماهنگی ۸ ایجنت هوشمند، اپلیکیشن دسکتاپ یکپارچه Local-First و ربات متن‌باز Smart Support Bot</strong>
 </p>
 
 <p align="center">
   <a href="https://foxnext.net/fa/">وب‌سایت رسمی</a> •
-  <a href="https://foxnext.net/fa/download.html">دانلود نسخه ویندوز</a> •
+  <a href="https://foxnext.net/fa/download.html">صفحه دانلود (foxnext.net)</a> •
+  <a href="https://github.com/Fox-Next/Automation-Control/releases/latest">گیت‌هاب ریلیز (v3.0.0)</a> •
   <a href="https://foxnext.online/fa/">پنل ابری کنترل</a> •
   <a href="ARCHITECTURE.md">معماری سیستم</a> •
-  <a href="SECURITY.md">سیاست امنیت</a>
+  <a href="SECURITY.md">امنیت</a>
 </p>
 
 ---
 
-## ۱. معرفی پروژه
+## ۱. معرفی و بسته‌های انتشار رسمی (`v3.0.0`)
 
-نرم‌افزار **Automation Control** (ساخت شرکت **Fox Next**) تیمی متشکل از **۸ ایجنت هوش مصنوعی تخصصی** را برای فروش، پشتیبانی فنی چندسکویی، نظارت زیرساخت لینوکس، امور مالی و صدور لایسنس، بازاریابی چندکاناله و تولید محتوای صوتی و ویدیویی هماهنگ می‌کند.
+نرم‌افزار **Automation Control** (ساخت شرکت **Fox Next**) تیمی شامل **۸ ایجنت هوش مصنوعی تخصصی** را برای فروش، پشتیبانی فنی چندسکویی، عملیات سرور لینوکس، تایید مالی و لایسنس، بازاریابی چندکاناله و استودیوی خلاقیت هماهنگ می‌کند.
 
-این مخزن عمومی شامل موارد زیر است:
-- کد پاک‌سازی‌شده و متن‌باز **Smart Support Bot** (`smart-support-bot/src/`) استخراج‌شده از سرویس زنده عملیاتی.
-- اسکریپت‌های نصب تک‌خطی برای **سرور لینوکس** (`install.sh`) و موتور محلی **ComfyUI** روی ویندوز (`scripts/setup-comfyui.ps1`).
-- مستندات معماری، امنیت و منشور اخلاقی (`ARCHITECTURE.md`، `SECURITY.md`، `CODE_OF_ETHICS.md`).
+تمامی فایل‌های رسمی نسخه `v3.0.0` همراه با فایل اصالت‌سنجی `SHA256SUMS.txt` در **[GitHub Releases](https://github.com/Fox-Next/Automation-Control/releases/latest)** و **[foxnext.net/fa/download.html](https://foxnext.net/fa/download.html)** منتشر شده‌اند:
 
-> فایل‌های نصاب اجرایی ویندوز (`.exe`) در گیت‌هاب آپلود نمی‌شوند و منحصراً از صفحه رسمی دانلود ارائه می‌گردند: [foxnext.net/fa/download.html](https://foxnext.net/fa/download.html).
-
----
-
-## ۲. قابلیت‌های کلیدی
-
-- **تیم هماهنگ ۸ ایجنت هوشمند:** هماهنگ‌کننده ارشد ناوگان، مدیر پایگاه دانش، مشاور فروش، مهندس پشتیبانی فنی، ناظر زیرساخت لینوکس، خزانه‌داری و تایید پرداخت، متخصص رشد و انتشار، و مدیر خلاقیت و صدا.
-- **مکالمه صوتی دوطرفه سراسری:** دیکته پیوسته گفتار به متن، پاک‌سازی خودکار، صف پخش منظم پاسخ صوتی ایجنت‌ها، حالت هندزفری هوشمند و توقف فوری هنگام صحبت کاربر (Barge-in).
-- **جستجوی وب و واکشی امن صفحات:** ابزار `web_search` (حداکثر ۱۰ نتیجه) و `fetch_webpage` با محافظت ضد-SSRF برای مسدودسازی IPهای داخلی و متادیتا.
-- **پل امن دسکتاپ و `Chat-to-Config`:** ثبت رمزنگاری‌شده کلیدها و توکن‌ها از طریق کارت امن چت مستقیم به Vault (بدون ارسال به مدل هوش مصنوعی و با ماسک `[REDACTED_SECRET]`) و اجرای امن دستورات لینوکس با محدودیت دسترسی.
-- **اپلیکیشن واحد دسکتاپ (`Local-First` + `ComfyUI`):** اجرای خصوصی با کلید API شخصی (BYOK)، رندر تصویر و ویدیو روی کارت گرافیک محلی و جابه‌جایی تک‌کلیکی فضای کاری با فایل رمزنگاری‌شده `.fnbackup`.
+| بسته نصبی | پلتفرم | توضیح |
+| :--- | :--- | :--- |
+| **`AutomationControl.exe`** | ویندوز | اپلیکیشن واحد و سبک `Modular Shell` برای اتصال به کلود، VPS یا دسکتاپ |
+| **`AutomationControl_LocalEngine.exe`** | ویندوز | موتور مستقل دسکتاپ (`Lifetime $49`) با اجرای محلی، تریال ۴۸ ساعته و پشتیبانی کامل BYOK |
+| **`AutomationControl_RenderWorker.exe`** | ویندوز | ورکر رندر گرافیکی مستقل `ComfyUI` با دروازه سخت‌افزاری `6 GB VRAM` |
+| **`automation-control-linux.tar.gz`** | لینوکس VPS | بسته تمیز Self-Hosted لینوکس برای دانلود خودکار توسط `install.sh` |
+| **`SHA256SUMS.txt`** | همه | فهرست هش‌های رمزینه `SHA-256` برای تایید اصالت همه بسته‌ها |
 
 ---
 
-## ۳. مدل‌های دسترسی و تعرفه‌های شفاف
+## ۲. قابلیت‌های کلیدی نسخه نهایی
 
-| پلن | هزینه | ایجنت‌های فعال | امکانات اصلی |
+- **تیم ۸ ایجنت با دو حالت ساده (`Grok Bot`) و پیشرفته:** رابط چت‌محور ۳ستونه تمام‌صفحه در حالت ساده و پنل ۶تبه کامل در حالت پیشرفته.
+- **ورود با گوگل (`Google OAuth`) و `One Tap`:** احراز هویت سریع در کنار ورود با ایمیل، تایید کد امنیتی و پشتیبانی کامل از ۱۰ زبان.
+- **مکالمه صوتی دوطرفه:** دیکته پیوسته گفتار به متن، صف پخش منظم صدای ایجنت‌ها، حالت هندزفری و توقف فوری هنگام صحبت کاربر (`Barge-in`).
+- **موتور دولایه پاسخگویی دایرکت و کامنت (`Chat-First`):** پردازش بهینه پیام‌های اینستاگرام و تلگرام با کمترین مصرف توکن.
+- **حافظه ۳لایه هوشمند:** فشرده‌سازی خودکار حافظه، دانش برند و مدیریت بهینه کانتکست برای حفظ کیفیت و کاهش مصرف توکن.
+- **اتصال بدون مرورگر `cPanel / SSH / SFTP` و هاب مالی/فروشگاهی:** اتصال مستقیم و سبک با پاک‌سازی فوری رمزهای موقت + مدیریت فروشگاه، سفارش و انبارداری (هم با سایت و هم بدون سایت).
+- **اکوسیستم محلی `MCP / Skills / Plugins` و `Local-First`:** اجرای مستقل روی دسکتاپ و لینوکس با Vault رمزنگاری‌شده، کلید شخصی (`BYOK`)، بکاپ `.fnbackup` و رندر محلی `ComfyUI`.
+
+---
+
+## ۳. پلن‌ها و نسخه‌ها
+
+| پلن | قیمت | ایجنت‌های فعال | امکانات کلیدی |
 | :--- | :--- | :--- | :--- |
-| **Free** | **`$0`** | **۸ ایجنت** | سهمیه توکن روزانه و ماهانه، بونوس ۴۸ ساعت اول (یک‌بار به ازای ایمیل معتبر)، ۱ کانال سوشال (تلگرام یا اینستاگرام)، ۱ کاتالوگ، ۲۰ مگابایت فضا (فایل موقت ۷ روزه)، ۷ پست زمان‌بندی هفتگی و ۲۰ خروجی محلی ComfyUI در ماه |
-| **Basic** | **`$5/mo`** (`$50/yr`) | **۸ ایجنت** | سهمیه توکن ارتقایافته ماهانه، ۱۰ کانال سوشال و کاتالوگ، ۲۰۰ مگابایت فضا، دسترسی به Cloud Media API، آزادسازی ماهانه سهمیه سالانه (`1/12`) با قابلیت ذخیره مازاد تا ۳ ماه |
-| **Pro** | **`$12/mo`** (`$120/yr`) | **۸ ایجنت** | حجم بالای توکن ماهانه، اتوماسیون کامل چندکاناله و رسانه‌های ابری به همراه انتقال مازاد تا ۳ ماه |
-| **Pro Plus** | **`$19/mo`** (`$190/yr`) | **۸ ایجنت** | حداکثر توان پردازش ابری برای کمپین‌های سنگین، Cloud Media API و انتقال مازاد تا ۳ ماه |
-| **Lifetime** | **`$49`** (یک‌بار) | **۸ ایجنت** | **۱ نصب فعال قابل انتقال** (اپلیکیشن ویندوز **یا** نصب روی VPS لینوکس + `Smart Support Bot`)، ۴۸ ساعت تست، پشتیبانی کامل BYOK و مهاجرت `.fnbackup` |
-
-برای استفاده ابری و مدیریت اشتراک به پنل رسمی مراجعه کنید: [foxnext.online/fa/](https://foxnext.online/fa/).
+| **Free** | **`$0`** | **۸ ایجنت** | سهمیه پایه توکن + بونوس خوشامدگویی ۴۸ ساعته (ایمیل معتبر)، ۱ کانال سوشال، ۱ کاتالوگ، ۲۰ مگابایت فضا، پشتیبانی `ComfyUI` محلی |
+| **Basic** | **`$5/mo`** (`$50/yr`) | **۸ ایجنت** | سهمیه ماهانه ارتقایافته، ۱۰ کانال سوشال و کاتالوگ، ۲۰۰ مگابایت فضا، `Cloud Media API` فعال و ذخیره مازاد تا ۳ ماه |
+| **Pro** | **`$12/mo`** (`$120/yr`) | **۸ ایجنت** | سهمیه بالای ماهانه، اتوماسیون کامل چندکاناله و رسانه‌های ابری به همراه انتقال مازاد تا ۳ ماه |
+| **Pro Plus** | **`$19/mo`** (`$190/yr`) | **۸ ایجنت** | بیشترین ظرفیت پردازش ابری برای تیم‌ها و کمپین‌های سنگین به همراه انتقال مازاد تا ۳ ماه |
+| **Lifetime** | **`$49`** (یک‌بار) | **۸ ایجنت** | **۱ نصب فعال قابل انتقال** (`AutomationControl_LocalEngine.exe` در ویندوز **یا** سرور لینوکس + ربات پشتیبانی)، ۴۸ ساعت تست، پشتیبانی کامل `BYOK` و مهاجرت `.fnbackup` |
 
 ---
 
-## ۴. نصب سریع
+## ۴. دستورهای نصب تک‌خطی رسمی
 
-### روش اول — اپلیکیشن یکپارچه ویندوز (`Local-First` + `ComfyUI`)
+### 1) Windows Desktop — Automation Control (`PowerShell`)
+```powershell
+irm https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/install.ps1 | iex
+```
 
-۱. نسخه رسمی ویندوز را از صفحه دانلود دریافت کنید: [foxnext.net/fa/download.html](https://foxnext.net/fa/download.html).
-۲. *(اختیاری)* نصب و آماده‌سازی موتور محلی **ComfyUI** با دستور تک‌خطی زیر در PowerShell:
-
+### 2) Windows — Local ComfyUI GPU Worker (`PowerShell` / `scripts/Setup-ComfyUI.bat`)
 ```powershell
 irm https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/scripts/setup-comfyui.ps1 | iex
 ```
 
-### روش دوم — نصب تک‌خطی لینوکس (`Smart Support Bot`)
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/install.sh | bash
+### 3) Windows — Smart Support Bot (`PowerShell`)
+```powershell
+irm https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/scripts/install-smart-support-bot.ps1 | iex
 ```
 
-سپس فایل `/opt/smart-support/.env` را مطابق `.env.example` (شامل `TELEGRAM_BOT_TOKEN` و `CONTROL_PANEL_URL`) تنظیم کرده و سرویس `foxnext-smart-support` را راه‌اندازی کنید.
+### 4) Linux VPS — Automation Control + Smart Support Bot (`bash`)
+```bash
+curl -fsSL https://raw.githubusercontent.com/Fox-Next/Automation-Control/main/install.sh | sudo bash
+```
 
 ---
 
-## ۵. اتصال ماژولار به پنل کنترل (`panel_conversation_hook.py`)
+## ۵. اتصال ماژولار به پنل (`panel_conversation_hook.py`)
 
-فایل `smart-support-bot/src/panel_conversation_hook.py` به‌صورت استاندارد و بی‌برند طراحی شده و اتصال به پنل کنترل را صرفاً از طریق متغیرهای محیطی برقرار می‌کند:
-
-- `CONTROL_PANEL_URL`: آدرس کامل HTTP/HTTPS پنل کنترل (بدون هیچ IP یا دامنه هاردکدشده).
-- `CONTROL_PANEL_TOKEN`: توکن احراز هویت اختیاری برای ارتباط ایمن Webhook.
-- `CONTROL_PANEL_ROOT`: مسیر محلی اختیاری در استقرارهای یک‌پارچه.
+فایل `smart-support-bot/src/panel_conversation_hook.py` اتصال ایمن با پنل را صرفاً از طریق متغیرهای محیطی (`CONTROL_PANEL_URL`، `CONTROL_PANEL_TOKEN`، `CONTROL_PANEL_ROOT`) برقرار می‌کند.
 
 ---
 
@@ -97,6 +100,8 @@ Automation-Control/
 ├── assets/
 │   └── foxnext-logo.png
 ├── scripts/
+│   ├── Setup-ComfyUI.bat
+│   ├── install-smart-support-bot.ps1
 │   └── setup-comfyui.ps1
 ├── smart-support-bot/
 │   ├── requirements.txt
@@ -108,16 +113,18 @@ Automation-Control/
 ├── CODE_OF_ETHICS.md
 ├── LICENSE
 ├── SECURITY.md
+├── install.ps1
 ├── install.sh
 └── README*.md
 ```
 
 ---
 
-## ۷. امنیت، منشور اخلاقی و مجوز
+## ۷. امنیت، اصول اخلاقی و مجوز
 
-- سیاست گزارش آسیب‌پذیری و امنیت Vault: [SECURITY.md](SECURITY.md)
-- اصول اخلاقی و استفاده مسئولانه: [CODE_OF_ETHICS.md](CODE_OF_ETHICS.md)
-- منتشرشده تحت مجوز [MIT License](LICENSE) — تمامی حقوق برای **Fox Next** محفوظ است (۲۰۲۶).
+- سیاست امنیت و Vault: [SECURITY.md](SECURITY.md)
+- منشور اخلاقی هوش مصنوعی: [CODE_OF_ETHICS.md](CODE_OF_ETHICS.md)
+- راهنمای معماری: [ARCHITECTURE.md](ARCHITECTURE.md)
+- منتشرشده تحت مجوز [MIT License](LICENSE) — © 2026 **Fox Next**.
 
 </div>
