@@ -48,9 +48,9 @@
 - **统一 Windows 客户端与邮箱授权自动路由：** 单一轻量 `AutomationControl.exe`（约 29 MB），采用明亮的 `foxnext.online` 主题，支持登录后自动分流、VPS 严格在线授权验证及按需下载 `ComfyUI`/`FFmpeg`。
 - **双槽位单端唯一会话策略（`Web + Desktop`）：** 全版本（`Free` 至 `Lifetime`）统一支持同时保留 **1 个活跃 Web 会话 + 1 个活跃桌面端会话**；同平台新登录仅自动替换该平台先前的会话，互不干扰。
 - **多显卡加速（`NVIDIA CUDA`、`AMD ROCm/DirectML`、`Intel Arc`）：** 自动枚举全部 GPU（`>= 6 GB VRAM`）并支持设置内手动切换显卡。
-- **设置 → 工具与 MCP 管理（`find_tools`）：** 查看 8 位智能体内置工具权限，并在桌面端/自托管模式添加、启停与测试自定义 MCP 服务器（云端网页保持 32 KB 沙箱限制），智能体可自动发现并调用。
-- **仪表板智能分析双引擎（网站 + 多账号 Instagram）：** 并排支持网站只读诊断报告与 Instagram 账号分析，支持多目标选择器并将 Instagram 报告一键发送给智能体创作或存入品牌记忆。
-- **超级管理员 SaaS 中心与云端配额圆环：** 集中管理用户与配额、实时定价策略、活动横幅、5 个 API 池及云端用户百分比进度环。
+- **设置 → 工具与 MCP 管理（`find_tools` 与 `register_tool_or_mcp`）：** 全部 8 位智能体可自主发现、注册并调用工具；桌面端与自托管模式支持自定义 MCP 服务器，共享云端仅允许租户隔离的安全 `https://` Webhook/API 工具（保留 32 KB 输出上限）。
+- **两层 AI 配置继承与单租户 BYOK 隔离（`AI & Models` / `Superadmin Hub`）：** 云端订阅者可在独立工作区内按智能体配置个人 BYOK 密钥与模型，完全隔离且不暴露超级管理员密钥或预算。
+- **超级管理员 SaaS 中心、可编辑 5 大 API 池与安全密码轮换：** 采用模态框执行审计操作、支持无限创建独立 SaaS 租户、在线编辑/测试并同步 5 大云端 API 池、在云端仪表板底部展示百分比配额与存储条，并提供包含当前密码、邮箱 OTP 与 Turnstile/验证码的密码修改流程。
 - **桌面端本地 `MCP / Skills / Plugins` 与 `Local-First`：** 桌面端与 Linux 原生支持本地插件/技能扩展、加密 Vault、`.fnbackup` 迁移、`BYOK` 与本地 `ComfyUI` GPU 渲染。
 
 ---
