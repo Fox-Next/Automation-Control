@@ -45,6 +45,9 @@ Alle offiziellen Pakete (`v3.0.0`) inklusive `SHA256SUMS.txt` sind auf **[GitHub
 - **Zweistufige `Chat-First`-DM- & Kommentar-Engine:** Token-sparende Verarbeitung für Instagram und Telegram.
 - **3-Schichten-Speicherarchitektur:** Automatische Gedächtniskomprimierung und Brand-Brain-Kontext für präzise Antworten.
 - **Browserlose `cPanel / SSH / SFTP`-Anbindung & Commerce-Hub:** Direkte Server-Integration (mit sofortiger Bereinigung temporärer Zugangsdaten) sowie Shop-, Bestell- und Lagerverwaltung mit oder ohne eigene Website.
+- **Einstellungen → Tools & MCP (`find_tools`):** Integrierte Agenten-Tools prüfen und benutzerdefinierte MCP-Server auf Desktop & Self-Hosted Linux hinzufügen/testen (mit Sandbox-Sperre im Cloud-Web) inkl. automatischer Erkennung durch alle 8 Agenten.
+- **Dashboard Smart-Analyse (Website + Multi-Instagram):** Zwei Aktionsbuttons für Website (schreibgeschützter Bericht) und Instagram-Analyse mit Zielauswahl sowie direkter Übergabe an Agenten oder den Markenspeicher.
+- **Superadmin-SaaS-Hub & Kontingent-Ring:** Zentrale Steuerung für Nutzer, Live-Preise, Kampagnenmodus, 5 API-Pools und reine Prozentanzeige für Cloud-Nutzer.
 - **Lokale `MCP / Skills / Plugins` & `Local-First`:** Lokales `MCP`-Ökosystem auf Desktop/Linux, verschlüsselter Vault, `.fnbackup`-Migration, `BYOK` und lokales `ComfyUI`.
 
 ---

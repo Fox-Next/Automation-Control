@@ -45,6 +45,9 @@ Official verified installers (`v3.0.0`) are published on **[GitHub Releases](htt
 - **Two-Layer `Chat-First` DM & Comment Engine:** Ultra-efficient deterministic rule & AI pipeline for instant Instagram and Telegram responses.
 - **3-Layer Token-Optimized Memory:** Automatic episodic compression, brand-brain grounding, and short-term context pruning for consistent, low-overhead agent replies.
 - **Browserless `cPanel / SSH / SFTP` & Commerce Hub:** Direct server/website integration without headless browser overhead (with immediate cleanup of temporary credentials) plus unified Store, Inventory, and Finance workflows (with or without an external website).
+- **Settings → Tools & MCP Management (`find_tools`):** Inspect built-in tools & agent permissions, register/toggle/test custom MCP servers on Desktop & Self-Hosted Linux (32 KB sandbox cap preserved on Cloud Web) with automatic natural-language discovery across all 8 agents.
+- **Dashboard Smart Analysis (Website + Multi-Account Instagram):** Dual side-by-side Website & Instagram analysis actions with multi-target picker, Read-Only Website report, and Instagram content brief handoff (`Send to Agent`, `Save to Memory`).
+- **Superadmin SaaS Hub & Live Campaign Mode:** Unified SaaS dashboard for KPIs, user/quota controls, live `pricing_policy.json`, multilingual campaign mode, 5 API pools, and `%`-only Cloud subscriber quota ring.
 - **Desktop `Local-First` & Local `MCP` / `Skills`:** Isolated local `Plugins / Skills / MCP` ecosystem unlocked on Desktop & Linux (`Local-First` workspace Vault, `.fnbackup` migration, `BYOK` model routing, and `6 GB VRAM` local `ComfyUI` rendering).
 
 ---
