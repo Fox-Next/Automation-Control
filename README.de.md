@@ -46,6 +46,7 @@ Alle offiziellen Pakete (`v3.0.0`) inklusive `SHA256SUMS.txt` sind auf **[GitHub
 - **3-Schichten-Speicherarchitektur:** Automatische Gedächtniskomprimierung und Brand-Brain-Kontext für präzise Antworten.
 - **Browserlose `cPanel / SSH / SFTP`-Anbindung & Commerce-Hub:** Direkte Server-Integration (mit sofortiger Bereinigung temporärer Zugangsdaten) sowie Shop-, Bestell- und Lagerverwaltung mit oder ohne eigene Website.
 - **Einheitliche Windows-App & E-Mail-Lizenzrouting:** Eine einzelne schlanke `AutomationControl.exe` (~29 MB) im hellen `foxnext.online`-Design mit automatischem Tarif-Routing nach Anmeldung, strengem Online-VPS-Lizenzgate und On-Demand-Download für `ComfyUI`/`FFmpeg`.
+- **Dual-Slot-Sitzungsrichtlinie (`Web + Desktop`):** Erlaubt einheitlich für alle Tarife (`Free` bis `Lifetime`) **1 aktive Web-Sitzung + 1 aktive Desktop-Sitzung** gleichzeitig; eine erneute Anmeldung auf derselben Plattform ersetzt nur deren vorherige Sitzung.
 - **Multi-GPU (`NVIDIA CUDA`, `AMD ROCm/DirectML`, `Intel Arc`):** Automatische Multi-GPU-Erkennung (`>= 6 GB VRAM`) und manuelle GPU-Auswahl.
 - **Einstellungen → Tools & MCP (`find_tools`):** Integrierte Agenten-Tools prüfen und benutzerdefinierte MCP-Server auf Desktop & Self-Hosted Linux hinzufügen/testen (mit Sandbox-Sperre im Cloud-Web) inkl. automatischer Erkennung durch alle 8 Agenten.
 - **Dashboard Smart-Analyse (Website + Multi-Instagram):** Zwei Aktionsbuttons für Website (schreibgeschützter Bericht) und Instagram-Analyse mit Zielauswahl sowie direkter Übergabe an Agenten oder den Markenspeicher.
