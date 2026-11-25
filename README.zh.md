@@ -29,9 +29,7 @@
 
 | 发行文件 | 适用系统 | 说明 |
 | :--- | :--- | :--- |
-| **`AutomationControl.exe`** | Windows | 轻量级 `Modular Shell` 桌面端，支持云端、VPS 与本地连接 |
-| **`AutomationControl_LocalEngine.exe`** | Windows | 独立 `Local-First` 桌面引擎（`Lifetime $49`），含 48 小时试用与完整 `BYOK` |
-| **`AutomationControl_RenderWorker.exe`** | Windows | 独立 `ComfyUI` 本地 GPU 渲染工作节点（支持 `6 GB VRAM` 硬件门禁） |
+| **`AutomationControl.exe`** | Windows | 统一 Windows 客户端（约 29 MB），采用明亮 `foxnext.online` 主题，登录后自动分流（`Cloud` / `VPS` / `Local Engine`）、`connect_vps_strict` 验证与多显卡后台渲染（`>= 6 GB VRAM`，按需下载 `ComfyUI`/`FFmpeg`） |
 | **`automation-control-linux.tar.gz`** | Linux VPS | 洁净版自托管运行时包，由 `install.sh` 自动下载并校验 |
 | **`SHA256SUMS.txt`** | 全部 | 官方发行包 `SHA-256` 完整性校验清单 |
 
@@ -63,7 +61,7 @@
 | **Basic** | **`$5/mo`** (`$50/yr`) | **8 位智能体** | 更高月度额度、10 个社交渠道与目录、200 MB 空间、云端媒体 API + 最长 3 个月额度顺延 |
 | **Pro** | **`$12/mo`** (`$120/yr`) | **8 位智能体** | 大容量月度额度、全渠道与云端媒体自动化 + 最长 3 个月额度顺延 |
 | **Pro Plus** | **`$19/mo`** (`$190/yr`) | **8 位智能体** | 面向团队与高频活动的最大云端吞吐量 + 最长 3 个月额度顺延 |
-| **Lifetime** | **`$49`** (买断) | **8 位智能体** | **1 台可迁移活跃授权**（Windows 桌面引擎 `AutomationControl_LocalEngine.exe` **或** Linux VPS + Smart Support Bot）、48 小时试用、`BYOK`、`.fnbackup` |
+| **Lifetime** | **`$49`** (买断) | **8 位智能体** | **1 台可迁移活跃授权**（统一客户端 `AutomationControl.exe` 本地 `Local Engine` 模式 **或** Linux VPS + Smart Support Bot）、48 小时试用、`BYOK`、`.fnbackup` |
 
 ---
 

@@ -29,9 +29,7 @@ Alle offiziellen Pakete (`v3.0.0`) inklusive `SHA256SUMS.txt` sind auf **[GitHub
 
 | Paket | Zielsystem | Beschreibung |
 | :--- | :--- | :--- |
-| **`AutomationControl.exe`** | Windows | Leichte `Modular Shell`-App für Cloud, Self-Hosted VPS & Desktop |
-| **`AutomationControl_LocalEngine.exe`** | Windows | Eigenständige `Local-First`-Desktop-Engine (`Lifetime $49`) inkl. 48h-Test & `BYOK` |
-| **`AutomationControl_RenderWorker.exe`** | Windows | Eigenständiger GPU-Render-Worker für `ComfyUI` (`6 GB VRAM` Hardware-Gate) |
+| **`AutomationControl.exe`** | Windows | Einheitliche Windows-App (~29 MB) im hellen `foxnext.online`-Design mit E-Mail-Lizenzrouting (`Cloud`, `Self-Hosted VPS`, `Local Engine`), `connect_vps_strict`, Multi-GPU-Worker (`>= 6 GB VRAM`) und On-Demand-Setup für `ComfyUI` / `FFmpeg` |
 | **`automation-control-linux.tar.gz`** | Linux VPS | Bereinigtes Self-Hosted-Laufzeitpaket für die automatische Installation via `install.sh` |
 | **`SHA256SUMS.txt`** | Alle | Offizielle `SHA-256`-Prüfsummen aller Release-Dateien |
 
@@ -63,7 +61,7 @@ Alle offiziellen Pakete (`v3.0.0`) inklusive `SHA256SUMS.txt` sind auf **[GitHub
 | **Basic** | **`$5/mo`** (`$50/yr`) | **8 Agenten** | Erweitertes Monatskontingent, 10 Social-Kanäle & Kataloge, 200 MB Speicher, Cloud Media API + 3 Monate Rollover |
 | **Pro** | **`$12/mo`** (`$120/yr`) | **8 Agenten** | Hohes Monatskontingent, vollständige Omnichannel- & Cloud-Media-Automatisierung + 3 Monate Rollover |
 | **Pro Plus** | **`$19/mo`** (`$190/yr`) | **8 Agenten** | Maximale Cloud-Kapazität für Teams & große Kampagnen + 3 Monate Rollover |
-| **Lifetime** | **`$49`** (einmalig) | **8 Agenten** | **1 übertragbare Installation** (`AutomationControl_LocalEngine.exe` unter Windows **oder** Linux VPS + Smart Support Bot), 48h-Test, `BYOK`, `.fnbackup` |
+| **Lifetime** | **`$49`** (einmalig) | **8 Agenten** | **1 übertragbare Installation** (einheitliche `AutomationControl.exe` im `Local Engine`-Modus unter Windows **oder** Linux VPS + Smart Support Bot), 48h-Test, `BYOK`, `.fnbackup` |
 
 ---
 

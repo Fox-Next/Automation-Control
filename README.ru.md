@@ -29,9 +29,7 @@
 
 | Пакет | Платформа | Назначение |
 | :--- | :--- | :--- |
-| **`AutomationControl.exe`** | Windows | Лёгкий клиент `Modular Shell` для облачной панели, VPS и рабочего стола |
-| **`AutomationControl_LocalEngine.exe`** | Windows | Автономный настольный движок `Local-First` (`Lifetime $49`) с 48ч триалом и `BYOK` |
-| **`AutomationControl_RenderWorker.exe`** | Windows | Отдельный GPU-воркер рендеринга `ComfyUI` (контроль `6 GB VRAM`) |
+| **`AutomationControl.exe`** | Windows | Единое приложение (~29 МБ) в светлой теме `foxnext.online` с автомаршрутизацией по email (`Cloud`, `Self-Hosted VPS`, `Local Engine`), шлюзом `connect_vps_strict`, Multi-GPU-воркером (`>= 6 ГБ VRAM`) и загрузкой `ComfyUI` / `FFmpeg` по требованию |
 | **`automation-control-linux.tar.gz`** | Linux VPS | Очищенный пакет Self-Hosted для автоматической загрузки скриптом `install.sh` |
 | **`SHA256SUMS.txt`** | Все | Криптографические хеши `SHA-256` для проверки подлинности пакетов |
 
@@ -63,7 +61,7 @@
 | **Basic** | **`$5/mo`** (`$50/yr`) | **8 агентов** | Расширенный месячный лимит, 10 соцканалов и каталогов, 200 МБ, Cloud Media API + перенос остатка до 3 месяцев |
 | **Pro** | **`$12/mo`** (`$120/yr`) | **8 агентов** | Увеличенный пакет токенов, полная омниканальная публикация и облачные медиа + перенос остатка до 3 месяцев |
 | **Pro Plus** | **`$19/mo`** (`$190/yr`) | **8 агентов** | Максимальная производительность облака для команд и масштабных кампаний + перенос до 3 месяцев |
-| **Lifetime** | **`$49`** (разово) | **8 агентов** | **1 переносимая установка** (`AutomationControl_LocalEngine.exe` для Windows **или** Linux VPS + Smart Support Bot), 48ч тест, `BYOK`, `.fnbackup` |
+| **Lifetime** | **`$49`** (разово) | **8 агентов** | **1 переносимая установка** (единая `AutomationControl.exe` в режиме `Local Engine` для Windows **или** Linux VPS + Smart Support Bot), 48ч тест, `BYOK`, `.fnbackup` |
 
 ---
 

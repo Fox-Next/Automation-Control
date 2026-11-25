@@ -29,9 +29,7 @@ Official verified installers (`v3.0.0`) are published on **[GitHub Releases](htt
 
 | Package | Target | Description |
 | :--- | :--- | :--- |
-| **`AutomationControl.exe`** | Windows | Lightweight `Modular Shell` desktop app for Cloud, Self-Hosted VPS & Desktop workflows |
-| **`AutomationControl_LocalEngine.exe`** | Windows | Standalone `Local-First` (`Lifetime $49`) desktop engine with 48-hour free trial & full BYOK support |
-| **`AutomationControl_RenderWorker.exe`** | Windows | Standalone local `ComfyUI` GPU render worker (`6 GB VRAM` hardware gate) |
+| **`AutomationControl.exe`** | Windows | Unified single desktop app (~29 MB) with Light `foxnext.online` UI, post-install email license routing (`Cloud`, `Self-Hosted VPS`, `Local Engine`), strict `connect_vps_strict` gate, Multi-GPU worker (`>= 6 GB VRAM`), and on-demand `ComfyUI` / `FFmpeg` setup |
 | **`automation-control-linux.tar.gz`** | Linux VPS | Clean Self-Hosted runtime package auto-downloaded and verified by `install.sh` |
 | **`SHA256SUMS.txt`** | All | Cryptographic `SHA-256` checksums for all official release packages |
 
@@ -64,7 +62,7 @@ Official verified installers (`v3.0.0`) are published on **[GitHub Releases](htt
 | **Basic** | **`$5/mo`** (`$50/yr`) | **8 Agents** | Expanded monthly quota, 10 social channels & catalogs, 200 MB storage, Cloud Media API enabled, annual monthly-tranche release + up to 3-month rollover |
 | **Pro** | **`$12/mo`** (`$120/yr`) | **8 Agents** | High-capacity monthly token allowance, full omnichannel + Cloud Media automation, up to 3-month rollover |
 | **Pro Plus** | **`$19/mo`** (`$190/yr`) | **8 Agents** | Maximum cloud throughput for teams & high-volume campaigns, full Cloud Media APIs + up to 3-month rollover |
-| **Lifetime** | **`$49`** (one-time) | **8 Agents** | **1 transferable active installation** (`AutomationControl_LocalEngine.exe` on Windows **or** Linux VPS + Smart Support Bot), 48h trial, full `BYOK`, `.fnbackup` portability |
+| **Lifetime** | **`$49`** (one-time) | **8 Agents** | **1 transferable active installation** (unified `AutomationControl.exe` in `Local Engine` mode on Windows **or** Linux VPS + Smart Support Bot), 48h trial, full `BYOK`, `.fnbackup` portability |
 
 ---
 
