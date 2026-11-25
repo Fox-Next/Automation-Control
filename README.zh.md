@@ -48,7 +48,9 @@
 - **多显卡加速（`NVIDIA CUDA`、`AMD ROCm/DirectML`、`Intel Arc`）：** 自动枚举全部 GPU（`>= 6 GB VRAM`）并支持设置内手动切换显卡。
 - **设置 → 工具与 MCP 管理（`find_tools` 与 `register_tool_or_mcp`）：** 全部 8 位智能体可自主发现、注册并调用工具；桌面端与自托管模式支持自定义 MCP 服务器，共享云端仅允许租户隔离的安全 `https://` Webhook/API 工具（保留 32 KB 输出上限）。
 - **两层 AI 配置继承、`Unlimited` Max Tokens 与 8 智能体本土化提示词：** 云端订阅者可在隔离空间按智能体配置 BYOK 密钥与模型而不暴露超级管理员预算；全部 8 位智能体采用随面板语言自适应的品牌中性系统提示词，`Max Tokens` 默认设为 `0`（`Unlimited`）。
-- **超级管理员分层治理、实时 `Annual USD` 与 `Storage MB` 配额、`$1–$10` 充值与 Danger Zone：** 区分主超管（置顶第 1 行、不可删除）与次级超管（`Email OTP + 原因`双重校验）、实时在线指标（`Online Now`）、10 行分页排序、支持实时修改并立即生效的 `Plans & Pricing`（`Monthly USD`、`Annual USD`、`Tokens / mo`、`Storage MB` 无需重启即同步 `HTTP 413` 上传上限与 `/api/public/pricing`）、动态 `$1–$10` 额度充值、不含明文密钥的表格化审计日志（`update_pricing_policy`）、两行布局活动模式（`Publish Immediately` 与日期选择器）、全宽 5 大云端 API 池、10 语言诊断与连接测试，以及个人资料 Danger Zone 邮箱 OTP 自助注销账号（立即吊销 Web 与桌面端会话）。
+- **零闪烁 10 语言界面、Google 头像显示与 15 处 `?` 上下文帮助提示：** 基于 `<head>` 预渲染引导的零延迟语言切换（`i18n-prepaint`）、带防抖与重入锁的 DOM 翻译引擎（`window.__bfI18nTranslating`）、顶栏圆形 Google 头像呈现，以及覆盖全部 6 大标签页与 7 个设置面板的 `?` 帮助弹窗。
+- **每日/每周用量上限与倒计时进度条 + 只读财务监控中心：** 支持在超级管理员面板实时配置云端各套餐每日与每周用量上限（`daily_token_cap`、`weekly_token_cap`），仪表盘展示百分比与重置倒计时进度条（不暴露原始 Token 数量），超限返回友好升级提示（`HTTP 429`）；财务面板保持严格只读核验，无任何对外转账或提现入口。
+- **超级管理员分层治理、实时 `Annual USD` 与 `Storage MB` 配额、`$1–$10` 充值与 Danger Zone：** 区分主超管（置顶第 1 行、不可删除）与次级超管（`Email OTP + 原因`双重校验）、实时在线指标（`Online Now`）、10 行分页排序、支持实时修改并立即生效的 `Plans & Pricing`（`Monthly USD`、`Annual USD`、`Daily Cap`、`Weekly Cap`、`Tokens / mo`、`Storage MB` 无需重启即同步 `HTTP 413` 上传上限与 `/api/public/pricing`）、动态 `$1–$10` 额度充值、不含明文密钥的表格化审计日志（`update_pricing_policy`）、两行布局活动模式（`Publish Immediately` 与日期选择器）、全宽 5 大云端 API 池、10 语言诊断与连接测试，以及个人资料 Danger Zone 邮箱 OTP 自助注销账号（立即吊销 Web 与桌面端会话）。
 - **桌面端本地 `MCP / Skills / Plugins` 与 `Local-First`：** 桌面端与 Linux 原生支持本地插件/技能扩展、加密 Vault、`.fnbackup` 迁移、`BYOK` 与本地 `ComfyUI` GPU 渲染。
 
 ---
