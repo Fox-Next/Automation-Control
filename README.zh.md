@@ -52,6 +52,11 @@
 - **每日/每周用量上限与倒计时进度条 + 只读财务监控中心：** 支持在超级管理员面板实时配置云端各套餐每日与每周用量上限（`daily_token_cap`、`weekly_token_cap`），仪表盘展示百分比与重置倒计时进度条（不暴露原始 Token 数量），超限返回友好升级提示（`HTTP 429`）；财务面板保持严格只读核验，无任何对外转账或提现入口。
 - **超级管理员分层治理、实时 `Annual USD` 与 `Storage MB` 配额、`$1–$10` 充值与 Danger Zone：** 区分主超管（置顶第 1 行、不可删除）与次级超管（`Email OTP + 原因`双重校验）、实时在线指标（`Online Now`）、10 行分页排序、支持实时修改并立即生效的 `Plans & Pricing`（`Monthly USD`、`Annual USD`、`Daily Cap`、`Weekly Cap`、`Tokens / mo`、`Storage MB` 无需重启即同步 `HTTP 413` 上传上限与 `/api/public/pricing`）、动态 `$1–$10` 额度充值、不含明文密钥的表格化审计日志（`update_pricing_policy`）、两行布局活动模式（`Publish Immediately` 与日期选择器）、全宽 5 大云端 API 池、10 语言诊断与连接测试，以及个人资料 Danger Zone 邮箱 OTP 自助注销账号（立即吊销 Web 与桌面端会话）。
 - **交互式 `Spotlight` 流程图、8 大社交发布网关、移动端自适应与 `Meta Cross-Posting` 去重（`∞ Meta`）：** 静态模式下连线保持微弱透明（`0.10`），悬停或点击节点时仅高亮相关流向并淡化无关节点（`0.28`），在节点上方自动避障排布零重叠连接标签；支持全部 8 个输出网关（`Telegram`、`Instagram`、`Facebook`、`WhatsApp`、`YouTube`、`LinkedIn`、`X`、`Reddit`）及 Brand Brain 动态站点；未配置网关严格拦截启用（前端禁用并跳转 `设置 → 社交媒体`，后端返回 `HTTP 400 gateway_not_configured`）；移动端（`<= 768px`）自动隐藏画布仅显示底部状态卡片；启用 Meta 账户中心跨平台发布后节点下方显示 `∞ Meta` 标识，仅向主发布渠道发送 API 请求（私信与评论回复保持 100% 独立）。
+- **移动端 `70%` 抽屉、`UUID` 引用回复、中央文件注册表与 `HTTP 206` 媒体预览：** 适配移动端（`<= 768px`）侧滑抽屉、消息 `UUID` 回复定位高亮、多租户隔离 `FileRegistry` 与 `SVG` 脚本清理及字节范围音视频模态预览（`media_preview.js`）。
+- **统一 `StorageManager`（`Google Drive drive.file`、`Cloudflare R2` 与本地存储）：** 最小权限 `drive.file` OAuth 加密托管（`enc:v1:`）、断点直传、格式优化与发布保护清理周期。
+- **四层混合 `MemoryManager` 与可编辑 `Timeline Manifest` 时间线：** 基于 `SQLite FTS5` + 64 维向量的隔离记忆系统（支持防注入、`HTTP 422` 密钥拦截与版本恢复），以及多场景视频时间线（`style_bible` 视觉连贯性、单场景重生成、云端 CPU 防护与 `ffprobe`/`blackdetect` 质检）。
+- **Google One Tap 登录、强制条款确认门禁、Aikido 安全头与本地自托管字体：** 支持 `foxnext.online` 与 `app.foxnext.online` 跨域 `One Tap`、一次性 `terms_accepted_at` 门禁校验（未确认返回 `403 terms_not_accepted` 并弹出 `#modalMandatoryTermsGate`）、`HSTS`/`XFO: DENY`/`CSP` 安全响应头及 35 个本地 `.woff2` 字体文件（零外部 CDN 请求）。
+- **5 小时滚动配额上限、12 字段云端媒体池与实时汇率编辑器：** 超级管理员两倍宽（`span 2`）3×4 图像/音频/视频媒体池（Fernet 加密并直连 `HybridComputeRouter`）、单行对齐状态徽章、滚动 **5 小时配额** 进度条（不暴露原始 Token 数）及实时托曼汇率编辑器（默认 `275,000`）。
 - **桌面端本地 `MCP / Skills / Plugins` 与 `Local-First`：** 桌面端与 Linux 原生支持本地插件/技能扩展、加密 Vault、`.fnbackup` 迁移、`BYOK` 与本地 `ComfyUI` GPU 渲染。
 
 ---
