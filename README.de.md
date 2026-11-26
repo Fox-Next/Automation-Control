@@ -39,7 +39,7 @@ Alle offiziellen Pakete (`v3.0.0`) inklusive `SHA256SUMS.txt` sind auf **[GitHub
 
 - **8 Agenten mit Simple Mode (`Grok Bot`) & Advanced Mode:** Schlankes 3-Spalten-Chat-Layout oder vollständiges 6-Tab-Kontrollpanel.
 - **Google OAuth & One Tap:** Schnelle Anmeldung per Google oder E-Mail-Verifizierung in 10 Sprachen.
-- **Zwei-Wege-Sprachsteuerung:** Kontinuierliche Spracheingabe, geordnete TTS-Wiedergabe, Hands-Free-Modus und sofortiges Barge-in.
+- **Aufgeräumte Chat-Leiste, Diktat-Equalizer & Live-Zweiwege-Sprachmaskottchen:** Bündelt Chat-Aktionen, Schnelleinrichtung und Playbooks in 3 lokalisierten Dropdown-Menüs (`Tools & Chat`, `Quick Setup`, `Ready Playbooks`), bietet eine reine Symbolleiste mit 4-Balken-Equalizer fürs Sprachdiktat (ohne automatisches Absenden) sowie einen grünen Live-Sprachmodus, der das Maskottchen mit leuchtend blauen `#38bdf8`-Augen über einem weichgezeichneten Chat-Hintergrund zentriert und während TTS-Antworten dynamisch per Audio-Equalizer animiert.
 - **Zweistufige `Chat-First`-DM- & Kommentar-Engine:** Token-sparende Verarbeitung für Instagram und Telegram.
 - **3-Schichten-Speicherarchitektur:** Automatische Gedächtniskomprimierung und Brand-Brain-Kontext für präzise Antworten.
 - **Browserlose `cPanel / SSH / SFTP`-Anbindung & Commerce-Hub:** Direkte Server-Integration (mit sofortiger Bereinigung temporärer Zugangsdaten) sowie Shop-, Bestell- und Lagerverwaltung mit oder ohne eigene Website.

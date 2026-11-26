@@ -39,7 +39,7 @@ Official verified installers (`v3.0.0`) are published on **[GitHub Releases](htt
 
 - **8-Agent Team with Simple (`Grok Bot`) & Advanced Modes:** Streamlined 3-column chat-centric Simple Mode or full 6-tab Advanced Mode coordinating all 8 specialists.
 - **Google OAuth & One Tap Sign-In:** Seamless browser authentication alongside email verification and unified multi-device workspace access across 10 languages.
-- **Bidirectional Global Voice:** Continuous multi-language speech dictation, clean post-processing, ordered TTS playback queue, hands-free mode, and instant barge-in interrupt.
+- **Decluttered Chat Bar & Live Two-Way Voice Mascot Mode:** Clean header organizing actions into 3 localized RTL/LTR dropdowns (`Tools & Chat`, `Quick Setup`, `Ready Playbooks`), minimal icon-only composer bar with an animated 4-bar dictation equalizer (populating input without auto-sending), and an immersive green-mic Live Voice Mode that centers the animated robot mascot over a blurred chat backdrop with glowing blue `#38bdf8` eye-equalizer modulation during TTS replies (`AnalyserNode` + Web Audio fallback) and `Escape`/Exit dismissal preserving the full transcript.
 - **Two-Layer `Chat-First` DM & Comment Engine:** Ultra-efficient deterministic rule & AI pipeline for instant Instagram and Telegram responses.
 - **3-Layer Token-Optimized Memory:** Automatic episodic compression, brand-brain grounding, and short-term context pruning for consistent, low-overhead agent replies.
 - **Browserless `cPanel / SSH / SFTP` & Commerce Hub:** Direct server/website integration without headless browser overhead (with immediate cleanup of temporary credentials) plus unified Store, Inventory, and Finance workflows (with or without an external website).
