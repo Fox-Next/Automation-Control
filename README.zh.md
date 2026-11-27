@@ -63,6 +63,7 @@
 - **免费版 BYOK 封锁、双自定义智能体 5 层沙盒、付费 Mamali 自愈、多站点抓取与 80%/90% 自动清理：** 免费版严格禁止填写个人 BYOK 密钥（后端返回 `HTTP 403`，UI 锁定并显示升级提示），付费版（`Basic+`）正常可用；每位租户最多创建 `2/2` 个自定义智能体并受 5 层 `HARD DENY` 沙盒隔离（严禁基础设施、财务/授权、核心管理、直接发布/批量删除及隐私记忆域）；Mamali（`bf_platform`）面向付费用户开放 `web_search`、租户自愈、反 `SSRF` 主机黑名单、`HTTP 428` 人工确认门禁、自动 `.bak` 备份与 `Fernet enc:v1:` 加密；Asghar（`bf_support`）支持多站点共享预算爬虫（`25/100/400/600/1500` 页与 `site_domain` 标记）及无官网社媒知识抓取；全部 8 位智能体上传均启用可执行/宏/魔数拦截及四重防护 `ZIP` 安全解压（`safe_ingest.py`）；存储达 `>= 80%` 自动清理并保护固定/可编辑/目录资产，达 `>= 90%` 触发 `#storageCriticalAlertBanner` 警报（目标 `< 60%`）。
 - **桌面端本地 `MCP / Skills / Plugins` 与 `Local-First`：** 桌面端与 Linux 原生支持本地插件/技能扩展、加密 Vault、`.fnbackup` 迁移、`BYOK` 与本地 `ComfyUI` GPU 渲染。
 - **应用安全全面加固（`Phase 22-C`）：** 锁定已修复 CVE 的安全依赖（`fastapi`、`starlette`、`pillow`、`cryptography`、`jinja2`、`python-multipart`、`defusedxml`、`pyinstaller`），启用严格 Jinja2 `autoescape`，全面改用 `defusedxml` 解析 SVG/XML，强制执行 SSH 主机密钥校验（`known_hosts` / `RejectPolicy()`），彻底移除 `document.write`/`innerHTML`，严防 `TAR` 符号链接与路径穿越，增加出站 SSRF 与路径包含校验，并在 CI 中启用 `persist-credentials: false` 及移除生产环境 `assert`。
+- **智能高管会议室、多智能体语音圆桌、监督式路线图与跨模型本地向量记忆（`Phase 23`）：** `Titil` 自动分析目标并仅激活相关专家（区分 `会议中` 与变暗的 `待命` 状态），支持按发言顺序切换各智能体专属音色的语音圆桌会议（含头像脉冲动画 `gv:speakerChanged` 与实时字幕），生成持久化分类 `可执行路线图`（`workspaces/{user_id}/roadmaps.db`，支持单步与全流程真实委托并自动勾选 `✅ 已完成`），并通过本地 `SQLite FTS5` + 64 维向量记忆保证在任意套餐下切换 API 密钥、服务商或模型后记忆与进度 `100%` 零丢失（`?v=5.5.0`）。
 
 ---
 
