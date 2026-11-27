@@ -142,4 +142,4 @@ Automation-Control/
 - Security & Vault policy: [SECURITY.md](SECURITY.md)
 - Ethical AI principles: [CODE_OF_ETHICS.md](CODE_OF_ETHICS.md)
 - Architecture guide: [ARCHITECTURE.md](ARCHITECTURE.md)
-- Licensed under [MIT License](LICENSE) — Copyright © 2026 **Fox Next**.
+- Copyright © 2026 **Fox Next**.
