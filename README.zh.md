@@ -59,6 +59,7 @@
 - **5 小时滚动配额上限、12 字段云端媒体池与实时汇率编辑器：** 超级管理员两倍宽（`span 2`）3×4 图像/音频/视频媒体池（Fernet 加密并直连 `HybridComputeRouter`）、单行对齐状态徽章、滚动 **5 小时配额** 进度条（不暴露原始 Token 数）及实时托曼汇率编辑器（默认 `275,000`）。
 - **高并发全渠道电商（`70+` 并发客户）、通用付款凭证 OCR 与端到端履约闭环：** 基于 SQLite `WAL` 的多租户隔离会话引擎（横跨 Telegram、Instagram、WhatsApp 与 Facebook，保留 `168` 小时上下文）并通过 `70+` 并发压测零锁死；多模态 OCR 与仅限已连接网关的只读核验（`BEP-20`/`TRC-20`/`TON` 链上交易及 `Dodo Payments`、`Stripe`、`PayPal`、`Visa/Mastercard` 只读 `GET` 查询，严禁对外转账）；基于品牌知识库的拟人化 `Comment-to-DM` 转私信以及实体订单（地址与 10 位邮编校验）与数字授权（`FulfillmentService` 自动发卡）闭环。
 - **Shahla 专业创意工作室（`bf_creative` 授权 7 大工具）：** 自动抓取品牌配色与网页灵感（`fetch_webpage`、`web_search`）、受严格跨租户 `HTTP 403` 隔离保护的商品/徽标参考图合成（`edit_reference_image`）、基于 `Pillow` + `arabic-reshaper` + `python-bidi` 的高清 RTL/LTR 文字与 CTA 排版图层（彻底消除 AI 乱码文字）、一键导出注册至 `FileRegistry` 的 `9:16` · `1:1` · `16:9` 多比例素材包、受云端 CPU 防护保护的 `.srt`/`.ass` 同步字幕生成以及最多限制 `1` 次自动重试的视觉自检 QA 门禁。
+- **移动端极简模式锁定、顶部资料弹窗置顶、真实机器人检测与内联 Meta 同步选项：** 小于等于 `768px` 视口强制锁定 `Simple Mode` 并提供三段式 `70vw` 右侧抽屉（固定底部 `#mobileDrawerProfileFooter` 与三标签 `#mobileSettingsModal` 分类设置）；`#headerUserDropdownMenu` 通过 Portal 置顶（`z-index: 10550`）解决遮挡；订单表升级为紧凑换行布局并清理测试残留，同时移除 1 小时试用开关；全平台自动识别并使用客户消息语言回复；`Smart Support Bot` 经真实 `Telegram getMe` 探测反馈状态并锁定绑定销售专员；Instagram、Facebook 与 WhatsApp 表单内直接集成专属内联 `Meta` 关联与主发布者互斥复选框（`?v=5.3.0`）。
 - **桌面端本地 `MCP / Skills / Plugins` 与 `Local-First`：** 桌面端与 Linux 原生支持本地插件/技能扩展、加密 Vault、`.fnbackup` 迁移、`BYOK` 与本地 `ComfyUI` GPU 渲染。
 
 ---
