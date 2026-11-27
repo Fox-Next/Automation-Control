@@ -141,4 +141,4 @@ Automation-Control/
 - Sicherheit & Vault: [SECURITY.md](SECURITY.md)
 - Ethik-Richtlinien: [CODE_OF_ETHICS.md](CODE_OF_ETHICS.md)
 - Architektur: [ARCHITECTURE.md](ARCHITECTURE.md)
-- Lizenziert unter [MIT License](LICENSE) — Copyright © 2026 **Fox Next**.
+- Copyright © 2026 **Fox Next**.
