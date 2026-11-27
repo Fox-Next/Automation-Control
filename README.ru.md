@@ -141,4 +141,4 @@ Automation-Control/
 - Политика безопасности и Vault: [SECURITY.md](SECURITY.md)
 - Принципы этичного ИИ: [CODE_OF_ETHICS.md](CODE_OF_ETHICS.md)
 - Архитектура: [ARCHITECTURE.md](ARCHITECTURE.md)
-- © 2026 **Fox Next**.
+- Copyright © 2026 **Fox Next**.
