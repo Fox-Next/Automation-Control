@@ -1,21 +1,29 @@
-MIT License
-
-Copyright (c) 2026 Fox Next
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+PROPRIETARY SOFTWARE LICENSE
+ALL RIGHTS RESERVED
+Copyright (c) 2026 Amir Najafzadeh.
+Operating under the Foxnext trade name.
+All rights reserved.
+Automation Control is a proprietary software product developed,
+owned, and operated by Amir Najafzadeh under the Foxnext
+trade name.
+All source code, object code, documentation, designs, algorithms,
+architecture, and related materials are the exclusive intellectual
+property of Amir Najafzadeh, operating under the Foxnext brand,
+and are protected by applicable copyright and intellectual
+property laws.
+No license or permission is granted to any person or entity to:
+Copy, reproduce, or redistribute any part of this software.
+Modify, adapt, translate, or create derivative works.
+Use this software or any part of its source code in other projects.
+Sell, sublicense, publish, or commercially exploit this software.
+Distribute, share, or make this software available to third parties.
+Remove, alter, or conceal copyright or proprietary notices.
+Any use, reproduction, modification, distribution, or exploitation
+of this software requires prior written permission from the
+copyright holder.
+Access to this repository does not constitute a license or grant
+of intellectual property rights.
+THE SOFTWARE IS PROVIDED FOR VIEWING AND EVALUATION PURPOSES ONLY.
+NO RIGHTS ARE GRANTED EXCEPT THOSE EXPRESSLY AUTHORIZED IN WRITING
+BY THE COPYRIGHT HOLDER.
+ALL RIGHTS RESERVED.
