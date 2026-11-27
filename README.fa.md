@@ -144,6 +144,6 @@ Automation-Control/
 - سیاست امنیت و Vault: [SECURITY.md](SECURITY.md)
 - منشور اخلاقی هوش مصنوعی: [CODE_OF_ETHICS.md](CODE_OF_ETHICS.md)
 - راهنمای معماری: [ARCHITECTURE.md](ARCHITECTURE.md)
-- منتشرشده تحت مجوز (LICENSE) — © 2026 **Fox Next**.
+- منتشرشده توسط  — © 2026 **Fox Next**.
 
 </div>
