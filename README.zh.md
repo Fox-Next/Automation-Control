@@ -141,4 +141,4 @@ Automation-Control/
 - 安全与 Vault 规范：[SECURITY.md](SECURITY.md)
 - 负责任的 AI 准则：[CODE_OF_ETHICS.md](CODE_OF_ETHICS.md)
 - 系统架构文档：[ARCHITECTURE.md](ARCHITECTURE.md)
-- 基于 [MIT License](LICENSE) 开源 — Copyright © 2026 **Fox Next**。
+- Copyright © 2026 **Fox Next**。
